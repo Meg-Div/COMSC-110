@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+   string text;
+   string bff = "BFF";
+   string idk = "IDK";
+   string jk = "JK";
+   string tmi = "TMI";
+   string ttyl = "TTYL";
+   string best_friend_forever = "best friend forever";
+   string i_dont_know = "I don't know";
+   string just_kidding = "just kidding";
+   string too_much_information = "too much information";
+   string talk_to_you_later = "talk to you later";
+   
+   
+   cout << "Enter text:" << endl;
+   
+   getline(cin, text);
+   
+   cout << "You entered: " << text << endl;
+   
+   if (text.find("BFF") != std::string::npos)  {
+      text.replace(text.find(bff), bff.size(), best_friend_forever);
+   }
+   
+   if (text.find("IDK") != std::string::npos) {
+      text.replace(text.find(idk), idk.size(), i_dont_know);
+   }
+   
+   if (text.find("JK") != std::string::npos) {
+      text.replace(text.find(jk), jk.size(), just_kidding);
+   }
+   
+   if (text.find("TMI") != std::string::npos) {
+      text.replace(text.find(tmi), tmi.size(), too_much_information);
+   }
+   
+   if (text.find("TTYL") != std::string::npos) {
+      text.replace(text.find(ttyl), ttyl.size(), talk_to_you_later);
+   }
+   
+   cout << "Expanded: " << text << endl;
+   
+   return 0;
+}
