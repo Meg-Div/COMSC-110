@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+
+   string stringToReverse, reversedString;
+   
+   getline(cin, stringToReverse);
+   
+   if (stringToReverse == "d" || stringToReverse == "Done") {
+      stringToReverse = "done";
+      }
+   
+   while (stringToReverse != "done") {
+      
+      reversedString = string(stringToReverse.rbegin(),stringToReverse.rend());
+      
+      cout << reversedString << endl;
+      
+      getline(cin, stringToReverse);
+      
+      if (stringToReverse == "d" || stringToReverse == "Done") {
+         stringToReverse = "done";
+      }
+      
+   } 
+   
+   return 0;
+}
