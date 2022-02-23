@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+
+   int one, two, three, four, five, six;
+   int first, second;
+   
+   cin >> one;
+   cin >> two;
+   cin >> three;
+   cin >> four;
+   cin >> five;
+   cin >> six;
+   
+   for (int i = -10; i < 11; i++) 
+   {
+      for (int j = -10; j < 11; j++) 
+      {
+         for (int k = -10; k < 11; k++) 
+         {
+            for (int l = -10; l < 11; l++) 
+            {
+               if ((one * i) + (two * j) == three) 
+               {
+                  if ((four * k) + (five * l) == six) 
+                  {
+                     if ( i == k && j == l) 
+                     {
+                        first = i;
+                        second = j; 
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   
+   if (first == 0 && second == 0) 
+   {
+      cout << "There is no solution" << endl;
+   } 
+   else 
+   {
+        cout << "x = " << first << ", y = " << second << endl;
+   }
+   
+   return 0;
+}
