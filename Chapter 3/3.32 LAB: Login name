@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	string login, first, last, date;
+	int number;
+
+	cin >> first;
+	cin >> last;
+	cin >> number;
+	
+	date = to_string(number);
+	
+	login = last.substr(0, 5) + first.substr(0,1) + date.substr(date.length() - 2);
+	
+	cout << "Your login name: " << login << endl;
+	
+	return 0;
+}
