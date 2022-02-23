@@ -1,0 +1,39 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() 
+{
+
+   int firstDigit, secondDigit, number;
+   
+   cin >> number;
+   
+   if (number < 11 || number > 100) 
+   {
+      cout << "Input must be 11-100" << endl;
+   }
+   
+   else 
+   {
+        
+      cout << number << " ";
+
+      firstDigit = number / 10;
+      secondDigit = number % 10;
+
+      while (firstDigit != secondDigit) 
+      {
+         number--;
+         firstDigit = number / 10;
+         secondDigit = number % 10;
+      
+         cout << number << " ";
+      }
+
+      cout << endl;
+   
+   }
+   
+   return 0;
+}
