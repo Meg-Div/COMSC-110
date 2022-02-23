@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	int par, strokes;
+	string name;
+	
+	cin >> par;
+	cin >> strokes;
+	
+	int eagle = par - 2;
+	int birdie = par - 1;
+	int bogey = par + 1;
+
+   
+   if (par < 3 || par > 5) {
+      name = "Error";
+   }
+   else if (strokes == par) {
+      name = "Par";
+   }
+   else if (strokes == eagle) {
+      name = "Eagle";
+   }
+   else if (strokes == birdie) {
+      name = "Birdie";
+   }
+   else if (strokes == bogey) {
+      name = "Bogey";
+   }
+   
+   cout << name << endl;
+
+	return 0;
+}
