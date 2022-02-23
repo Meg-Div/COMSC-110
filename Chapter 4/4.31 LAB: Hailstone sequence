@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+
+   int number;
+   int count = 0;
+   
+   cin >> number;
+   
+   while (number > 1) 
+   {
+      
+      cout << number << "\t";
+      count++;
+      
+      if (number % 2 == 0) 
+      {
+         number /= 2;
+      }
+         
+      else 
+      { 
+         number = (number * 3) + 1;
+      }
+       
+      if (count == 10) 
+      {
+         cout << endl;
+         count = 0;
+      }
+   
+   }
+   
+   if (number == 1) 
+   {
+      cout << number << endl;
+   }
+
+
+   return 0;
+}
