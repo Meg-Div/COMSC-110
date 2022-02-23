@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int number;
+   int max = 0;
+   int average = 0;
+   int count = 0;
+   
+   cin >> number;
+   
+   while (number >= 0) 
+   {
+      if (number > max) 
+      {
+         max = number;  
+      } 
+      count++;
+      average += number;
+      cin >> number;  
+   }
+      
+   average /= count;
+   
+   cout << max << " " << average << endl;
+
+   return 0;
+}
