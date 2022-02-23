@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+   
+   int amount, dollar, quarter, dime, nickel, penny;
+   
+   cin >> amount;
+   
+   if (amount == 0) 
+   {
+      cout << "No change" << endl;   
+   }
+   
+   else 
+   {    
+      dollar = amount / 100;
+      amount -= (dollar * 100);
+      
+      quarter = amount / 25;
+      amount -= (quarter * 25);
+      
+      dime = amount / 10;
+      amount -= (dime * 10);
+      
+      nickel = amount / 5;
+      amount -= (nickel * 5);
+      
+      penny = amount / 1; 
+
+      if (dollar == 1) {
+         cout << dollar << " Dollar" << endl;
+         }
+         
+      else if (dollar > 1) {
+         cout << dollar << " Dollars" << endl;
+         }
+         
+      if (quarter == 1) {
+         cout << quarter << " Quarter" << endl;
+         }
+         
+      else if (quarter > 1) {
+         cout << quarter << " Quarters" << endl;
+         }
+         
+      if (dime == 1) {
+         cout << dime << " Dime" << endl;
+         }
+         
+      else if (dime > 1) {
+         cout << dime << " Dimes" << endl;
+         }
+         
+      if (nickel == 1) {
+         cout << nickel << " Nickel" << endl;
+         }
+         
+      else if (nickel > 1) {
+         cout << nickel << " Nickels" << endl;
+         } 
+         
+      if (penny == 1) {
+         cout << penny << " Penny" << endl;
+         }
+         
+      else if (penny > 1) {
+         cout << penny << " Pennies" << endl;
+         }
+    }
+   
+   return 0;
+}
