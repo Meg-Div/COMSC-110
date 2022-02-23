@@ -1,0 +1,20 @@
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+#include <algorithm> 
+using std::min;
+
+int main() {
+   
+   int a, b, c;
+   
+   cin >> a;
+   cin >> b;
+   cin >> c;
+
+   cout << min({a, b, c}) << endl;
+   
+   return 0;
+}
