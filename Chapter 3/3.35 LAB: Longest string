@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+	string str1, str2, longest;
+	int length1, length2;
+
+   cin >> str1;
+   cin >> str2;
+   
+   length1 = str1.length();
+	 length2 = str2.length();
+   
+   if (length1 > length2) {
+      longest = str1;
+   } 
+   
+   else {
+      longest = str2;
+   }
+   
+   cout << longest << endl;
+   
+   return 0;
+}
