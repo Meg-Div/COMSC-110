@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+string CreateAcronym(string userPhrase) 
+{
+   string acro;
+   
+   for (char letter : userPhrase) 
+   {
+      if (isupper(letter)) 
+      {
+         acro.push_back(letter);  
+      }
+   }
+   
+   return acro;
+}
+
+int main() 
+{
+   string phrase;
+   
+   getline(cin, phrase);
+   
+   cout << CreateAcronym(phrase) << endl;
+   
+   return 0;
+}
