@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+
+   vector <int> list;
+   int number, range;
+   bool sorted = true;
+   
+   cin >> range;
+   
+   while (cin >> number) {
+      list.push_back(number);  
+   }
+   
+   for (int i = 0; i < range-1; ++i) {
+      if (list.at(i) >= list.at(i+1)) {
+         sorted = false;
+      }
+   }
+   
+   sorted == true ? cout << “Sorted” << endl : cout << “Unsorted” << endl;
+      
+   return 0;
+}
