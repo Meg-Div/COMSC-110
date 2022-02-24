@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+bool IsLeapYear(int userYear) 
+{
+   bool leap;
+   
+   if (userYear % 4 == 0) 
+   {
+      leap = true;
+      if (userYear % 100 == 0 && userYear % 400 != 0) 
+      {
+         leap = false;
+      }
+   }
+   
+   cout << userYear;
+   
+   leap == true ? cout << " is a leap year." : cout << " is not a leap year." ;
+    
+   cout << endl;
+   
+   return leap;
+}
+
+int main() 
+{
+   int year;
+   string buf;
+   
+   cin >> buf;
+   
+   year = stoi(buf.c_str());
+   
+   IsLeapYear(year);
+
+   return 0;
+}
