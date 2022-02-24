@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() 
+{
+   vector<int> userValues;
+   int value;
+   double sum;
+   
+   while (cin >> value) 
+   {
+      userValues.push_back(value);
+   }
+   
+   for (double num : userValues) sum += num;
+   
+   sort(userValues.begin(), userValues.end());
+ 
+   cout << userValues.at(0) << " " << userValues.back() << " " << sum / 10.0 << endl;
+   
+   return 0;
+}
