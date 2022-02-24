@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main() 
+{
+   int numItems;
+   vector<int> listItems;
+   string currItem;
+   int count = 0;
+   
+   cin >> numItems;
+   
+   if (numItems == 0) 
+   {
+      cout << 0 << endl; 
+   }
+   else 
+   {
+      while (cin >> currItem) 
+      {
+         if (currItem != "I") 
+         {
+            count++;
+         }
+         else 
+         {
+            listItems.push_back(count);
+            count = 0;
+         }
+         listItems.push_back(count);
+      }
+      
+      sort(listItems.begin(), listItems.end());
+      
+      cout << listItems.back() << endl;
+   }
+   
+   return 0;
+}
