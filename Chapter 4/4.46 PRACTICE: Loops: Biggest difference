@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+
+   vector <int> list;
+   int number, diff, high, low;
+   int biggest = 0;
+   
+   cin >> number;
+   
+   while (cin >> number) {
+      if (number < 0) {
+         number = abs(number);
+      }
+      list.push_back(number);
+   }
+   
+   for (size_t i = 0; i < list.size() - 1 ; ++i) {
+      diff = 0;
+      high = max(list.at(i),list.at(i+1));
+      low = min(list.at(i),list.at(i+1));
+      diff = high - low;
+      
+      if (diff > biggest) {
+         biggest = diff;
+      }
+   }
+   
+   cout << biggest << endl;
+
+   return 0;
+}
