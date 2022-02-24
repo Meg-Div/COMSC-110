@@ -1,0 +1,44 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+string IntegerToReverseBinary(int integerValue) 
+{
+   string binary, number;
+   int value;
+   
+   while (integerValue > 0) 
+   {
+       value = integerValue % 2;
+       number = to_string(value);
+       binary.append(number);
+       integerValue = integerValue / 2;
+   }
+   
+   return binary;
+}
+
+string ReverseString(string userString) 
+{
+   
+   reverse(userString.begin(),userString.end());
+   
+   return userString;
+}
+
+int main() 
+{
+    string binary, buf;
+    
+    getline(cin, buf);
+    
+    binary = IntegerToReverseBinary(atoi(buf.c_str()));
+
+    binary = ReverseString(binary);
+    
+    cout << binary << endl;
+        
+    return 0;
+}
