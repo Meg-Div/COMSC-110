@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+double SecondsToJiffies(double userSeconds) 
+{
+   
+   double jiffies = (userSeconds * 100);
+   
+   cout << fixed << setprecision(2) << jiffies << endl;
+   
+   return jiffies;
+}
+
+int main() 
+{
+   double seconds;
+   string buf;
+   
+   cin >> buf;
+   
+   seconds = atof(buf.c_str());
+
+   SecondsToJiffies(seconds);
+
+   return 0;
+}
