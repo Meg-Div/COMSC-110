@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() 
+{
+   int numItems;
+   vector<int> listItems;
+   
+   cin >> numItems;
+      
+   while (cin >> numItems) 
+   {
+      listItems.push_back(numItems);
+   }
+   
+   sort(listItems.begin(), listItems.end());
+   
+   cout << listItems.back() << endl;
+   
+   return 0;
+}
+
