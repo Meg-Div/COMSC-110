@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip>   
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+double MilesToLaps(double userMiles) 
+{
+   double laps = (userMiles/0.25);
+   
+   cout << fixed << setprecision(2) << laps << endl;
+   
+   return laps;
+}
+
+
+int main() 
+{
+   double miles;
+   string buf;
+   
+   cin >> buf;
+   
+   miles = atof(buf.c_str());
+   
+   MilesToLaps(miles);
+   
+   return 0;
+}
