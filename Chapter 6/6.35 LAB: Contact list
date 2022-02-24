@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+string GetPhoneNumber(vector<string> nameVec, vector<string> phoneNumberVec, string contactName) 
+{
+   string name;
+   for (size_t i = 0; i < nameVec.size(); ++i) 
+   {
+      if (nameVec.at(i) == contactName) 
+      {
+         cout << phoneNumberVec.at(i) << endl;
+         name = phoneNumberVec.at(i);
+      }
+   }
+    return name;
+}
+
+int main() 
+{
+   string data;
+   int total;
+   vector <string> names, numbers;
+   
+   cin >> total;
+   
+   for (size_t i = 0; i < (total * 2); ++i) 
+   {
+      cin >> data;
+      if (i % 2 == 0) 
+      {
+         names.push_back(data);
+      }
+      
+      else 
+      {
+         numbers.push_back(data);
+      } 
+   }
+   
+   cin >> data;
+   
+   GetPhoneNumber(names, numbers, data);
+   
+   return 0;
+}
