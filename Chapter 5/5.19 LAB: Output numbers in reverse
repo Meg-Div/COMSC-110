@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>  
+#include <algorithm>
+
+using namespace std;
+
+int main() 
+{
+   size_t number;
+   
+   cin >> number;
+   
+   vector<int> userInts(number);
+   
+   for (size_t i = 0; i < number; ++i) 
+   {
+      cin >> userInts.at(i);
+   }
+   
+   reverse(userInts.begin(), userInts.end());
+
+   for(size_t i = 0; i < userInts.size(); ++i) 
+   {
+      cout << userInts.at(i) << ",";  
+   }
+   
+   cout << endl;
+   
+   return 0;
+}
