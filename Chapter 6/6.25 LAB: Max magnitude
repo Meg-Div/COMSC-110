@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <algorithm>
+
+using namespace std;
+
+int MaxMagnitude(int userVal1, int userVal2) 
+{
+   int value1 = abs(userVal1);
+   int value2 = abs(userVal2);
+   int largest;
+   
+   if (value1 > value2) 
+   {
+      largest = userVal1;
+   }
+   
+   else 
+   {
+      largest = userVal2;
+   }
+   
+   cout << largest << endl;
+   
+   return largest;
+}
+
+
+int main() 
+{
+   int value1, value2;
+   string buf;
+   
+   cin >> buf;
+   value1 = stoi(buf.c_str());
+   
+   cin >> buf;
+   value2 = stoi(buf.c_str());
+   
+   MaxMagnitude(value1, value2);
+
+   return 0;
+}
