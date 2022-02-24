@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+
+   size_t range, number;
+   size_t total = 0;
+   size_t count = 0;
+   vector <size_t> list;
+   
+   cin >> range;
+   
+   while (cin >> number && number != 0) {
+      count++;
+      list.push_back(number);
+      
+      if (count == range) {
+         
+         for (size_t i = 0; i < list.size(); ++i) {
+            total += list.at(i);
+         }
+         
+         cout << total << endl;
+         
+         total = 0;
+         count = 0;
+         
+         list.clear();
+         
+         cin >> range;
+      }
+   }
+
+   return 0;
+}
