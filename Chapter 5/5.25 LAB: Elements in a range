@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() 
+{
+
+   vector <size_t> integers;
+   size_t number, range, low, high;
+   
+   cin >> number;
+   
+   for (size_t i = 0; i < number; ++i) 
+   {
+      cin >> range;
+      integers.push_back(range);
+   }
+   
+   cin >> low;
+   cin >> high;
+   
+   for (size_t num : integers) {
+      if (num >= low && num <= high) 
+      {
+         cout << num << ",";
+      }
+   }
+
+   cout << endl;
+   
+   return 0;
+}
