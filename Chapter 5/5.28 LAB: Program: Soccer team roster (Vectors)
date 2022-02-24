@@ -1,0 +1,122 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() 
+{
+   vector<int> jerseyNumber(5);
+   vector<int> playerRating(5);
+   int tempNum = 0;
+   string menuOption;
+   bool flag = false;
+    
+      for (size_t i = 0; i < 5; ++i) 
+      {
+         cout << "Enter player "<< i + 1 << "'s jersey number:" << endl;
+         cin >> jerseyNumber.at(i);
+         cout << "Enter player "<< i + 1 << "'s rating:" << endl;
+         cin >> playerRating.at(i);
+         cout << endl;
+      }
+       
+      cout << "ROSTER" << endl;
+      
+         for (size_t i = 0; i < (jerseyNumber.size()); ++i) 
+         {
+            cout << "Player "<< i + 1 << " -- Jersey number: " << jerseyNumber.at(i) << ", " << "Rating: " << playerRating.at(i) << endl;
+         }
+    
+    while (flag == false) 
+    {
+      cout << endl;
+      cout << "MENU" << endl;
+      cout << "a - Add player" << endl;
+      cout << "d - Remove player" << endl;
+      cout << "u - Update player rating" << endl;
+      cout << "r - Output players above a rating" << endl;
+      cout << "o - Output roster" << endl;
+      cout << "q - Quit" << endl;
+      cout << endl;
+      cout << "Choose an option:" << endl;
+      cin >> menuOption;
+      
+      if (menuOption == "a") 
+      {
+         cout << "Enter a new player's jersey number:"<< endl;
+         cin >> tempNum;
+         jerseyNumber.push_back(tempNum);
+         cout << "Enter the player's rating:"<< endl;
+         cin >> tempNum;
+         playerRating.push_back(tempNum);
+      }
+        
+      if (menuOption == "d") 
+      {
+         cout << "Enter player's jersey number:" << endl;
+         cin >> tempNum;
+         
+         for (size_t i = 0; i < jerseyNumber.size(); ++i) 
+         {
+
+            if (jerseyNumber.at(i) == tempNum) 
+            {
+               for (size_t j = i; j < jerseyNumber.size()-1; ++j) 
+               {
+                  jerseyNumber.at(j) = jerseyNumber.at(j+1);
+                  playerRating.at(j) = playerRating.at(j+1);
+               }
+            }
+         }
+          jerseyNumber.pop_back();
+          playerRating.pop_back();
+      }
+        
+      if (menuOption == "u") 
+      {
+         cout << "Enter a jersey number:" << endl;
+         cin >> tempNum;
+         for (size_t i = 0; i < jerseyNumber.size(); ++i) 
+         {
+            if (jerseyNumber.at(i) == tempNum) 
+            {
+               cout << "Enter a new rating for player:" << endl;
+               cin >> tempNum;
+               playerRating.at(i) = tempNum;
+            }
+         }
+      }
+        
+      if (menuOption == "r") 
+      {
+         cout << "Enter a rating:" << endl;
+         cin >> tempNum;
+         cout << "ABOVE " << tempNum << endl;
+         
+         for (size_t i = 0; i < jerseyNumber.size(); ++i) 
+         {
+            if (playerRating.at(i) > tempNum) 
+            {
+               cout << "Player " << i + 1 << " -- Jersey number: " << jerseyNumber.at(i) << ", " << "Rating: " << playerRating.at(i) << endl;
+            }
+         }
+      }
+        
+      if (menuOption == "o") 
+      {
+         cout << "ROSTER" << endl;
+         for (size_t i = 0; i < (jerseyNumber.size()); ++i) 
+         {
+            cout << "Player "<< i + 1 << " -- Jersey number: " << jerseyNumber.at(i) << ", " << "Rating: " << playerRating.at(i) << endl;
+         }
+      }
+        
+      if (menuOption == "q") 
+      {
+         flag = true;
+      }
+   
+   } 
+   
+   return 0;
+}
