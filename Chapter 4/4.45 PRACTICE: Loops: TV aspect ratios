@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+
+using namespace std;
+
+int main() 
+{
+   
+   double diagonal, height;
+   double width = 1.0;
+   string buf;
+ 
+    getline(cin, buf);
+    diagonal = atoi(buf.c_str());
+
+    while (width < diagonal)
+    {
+       double diagonalSquared = pow(diagonal, 2);
+       double widthSquared = pow(width, 2);
+       double heightSquared = diagonalSquared - widthSquared;
+       height = sqrt(heightSquared);
+       
+       if (width > height) 
+       {
+         cout << width << " " << height << endl;
+       }
+       
+       width++;
+    }
+
+   return 0;
+}
