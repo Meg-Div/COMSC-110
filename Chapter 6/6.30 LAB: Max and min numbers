@@ -1,0 +1,39 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int LargestNumber(int num1, int num2, int num3) 
+{
+   return max({num1,num2, num3});
+}
+
+int SmallestNumber(int num1, int num2, int num3) 
+{
+   return min({num1,num2, num3});
+}
+
+int main() 
+{
+   string buf;
+   int number1, number2, number3;
+   
+   cin >> buf;   
+   number1 = stoi(buf.c_str());
+   
+   cin >> buf;
+   number2 = stoi(buf.c_str());
+   
+   cin >> buf;
+   number3 = stoi(buf.c_str());
+   
+   int largest = LargestNumber(number1, number2, number3);
+   
+   int smallest = SmallestNumber(number1, number2, number3);
+   
+   cout << "largest: " << largest << endl;
+   cout << "smallest: " << smallest << endl;
+   
+   return 0;
+}
