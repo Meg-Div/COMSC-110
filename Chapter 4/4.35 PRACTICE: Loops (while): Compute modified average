@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int roll;
+   int count = 0;
+   int total = 0;
+   int invalidCount = 0;
+   double average;
+   
+   while (cin >> roll && roll != 0) {
+      
+      if (roll <= 12 && roll >= 2) {
+         total += roll;
+         count++;
+      }
+      
+      else {
+         invalidCount++;
+      }
+   }
+   
+   if (total == 0 && count == 0) {
+      average = 0;   
+   } 
+   
+   else {
+      average = (static_cast <double> (total)) / count;
+   }
+   
+   cout << "Average: " << average << endl;
+   cout << "Valid: " << count << endl;
+   cout << "Invalid: " << invalidCount << endl;
+
+   return 0;
+}
