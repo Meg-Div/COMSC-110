@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string RemoveNonAlpha(string userString) 
+{
+   string newString;
+   
+   for (size_t i = 0; i < userString.size(); ++i) 
+   {
+      if (isalpha(userString.at(i))) 
+      {
+         newString.push_back(userString.at(i));
+      }
+   }
+   
+   cout << newString << endl;
+   
+   return newString;
+}
+
+int main() 
+{
+   string sequence;
+  
+   getline(cin, sequence);
+  
+   RemoveNonAlpha(sequence);
+   
+   return 0;
+}
