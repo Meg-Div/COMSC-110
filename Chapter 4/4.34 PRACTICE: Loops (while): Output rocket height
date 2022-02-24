@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+   int rocketHeight = 0; 
+   int initialVelocity = 0;
+   int timeSinceLaunch = 0; 
+   
+   cin >> initialVelocity;
+   
+   cout << timeSinceLaunch << " " << rocketHeight << endl;   
+   timeSinceLaunch++;
+   rocketHeight = (initialVelocity *  timeSinceLaunch) - 5 * pow(timeSinceLaunch,2);
+      
+   while (rocketHeight >= 0) {
+      cout << timeSinceLaunch << " " << rocketHeight << endl;
+      timeSinceLaunch++;
+      rocketHeight = (initialVelocity *  timeSinceLaunch) - 5 * pow(timeSinceLaunch,2);
+   }
+   
+   if (rocketHeight > -1) {
+   cout << timeSinceLaunch << " " << rocketHeight << endl;
+}
+
+   return 0;
+}
