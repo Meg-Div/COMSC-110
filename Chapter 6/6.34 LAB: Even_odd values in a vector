@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool IsVectorEven(vector<int> myVec) 
+{
+   bool even = true;
+   
+   for (int num : myVec) 
+   {
+      if (num % 2 != 0) 
+      {
+         even = false;
+      }
+   }
+   return even;
+}
+
+bool IsVectorOdd(vector<int> myVec) 
+{
+   bool odd = true;
+   
+   for (int num : myVec) 
+   {
+      if (num % 2 == 0)  
+      {
+         odd = false;
+      }
+   }
+   
+   return odd;
+}
+
+int main() 
+{
+   vector <int> vec;
+   string buf;
+   int number;
+   
+   cin >> buf;
+   
+   while(cin >> buf) 
+   {
+      number = atoi(buf.c_str());
+      vec.push_back(number);
+   }
+   
+   if (IsVectorEven(vec) == true) 
+   {
+      cout << "all even" << endl;
+   }
+   
+   else if (IsVectorOdd(vec) == true) 
+   {
+      cout << "all odd" << endl;
+   } 
+   
+   else 
+   {
+      cout << "not even or odd" << endl;
+   }
+   
+   return 0;
+}
