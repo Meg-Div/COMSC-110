@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+void SwapValues(int& userVal1, int& userVal2) 
+{
+   int tmpValue = userVal2;
+   userVal2 = userVal1;
+   userVal1 = tmpValue;
+
+}
+
+int main() 
+{
+   int value1, value2;
+   string buf;
+   
+   cin >> buf;
+   value1 = stoi(buf.c_str());
+   
+   cin >> buf;
+   value2 = stoi(buf.c_str());
+   
+   SwapValues(value1, value2);
+   
+   cout << value1 << " " << value2 << endl;
+   
+   return 0;
+}
