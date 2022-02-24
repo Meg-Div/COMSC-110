@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() 
+{
+
+   vector <string> str;
+   vector <string> contains;
+   size_t number;
+   string word;
+   char character;
+   
+   cin >> number;
+   
+   for (size_t i = 0; i < number; ++i) 
+   {
+      cin >> word;
+      str.push_back(word);
+   }
+   
+   cin >> character;
+   
+   for (size_t i = 0; i < str.size(); ++i) 
+   {
+      word = str.at(i);
+      for (size_t j = 0; j < word.size(); ++j) 
+      {
+        if (word.at(j) == character) 
+        {
+           j = word.size();
+           contains.push_back(word);
+        }
+      }
+   }      
+   
+   for (string word : contains) 
+      cout << word << ",";
+   
+   return 0;
+}
