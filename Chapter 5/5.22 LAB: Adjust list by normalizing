@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip>
+#include <vector>
+
+using namespace std;
+
+int main() 
+{
+   vector<float> userInts;
+   float number, length, highest;
+   
+   cin >> length;
+   
+   while (cin >> number) 
+   {
+      userInts.push_back(number);
+   }
+
+   highest = userInts.back();
+
+   for (size_t num : userInts )
+      num > highest ? highest = num : num = num;
+   
+   for (size_t num : userInts )
+      cout << fixed << setprecision(2) << num / highest << " ";
+
+   cout << endl;
+   
+   return 0;
+}
