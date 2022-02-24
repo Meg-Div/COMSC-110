@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() 
+{
+   
+   vector <int> list;
+   int number, integer;
+
+   cin >> number;
+   
+   while (cin >> integer) 
+   {
+      list.push_back(integer);
+   }
+
+   sort(list.begin(), list.end());
+
+   cout << list.at(0) << " and " << list.at(1) << endl;
+
+   return 0;
+}
