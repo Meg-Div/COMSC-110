@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() 
+{
+
+   vector<size_t> userInts; 
+   int number, threshold;
+   
+   while (cin >> number) 
+   {
+      userInts.push_back(number);  
+   }
+   
+   userInts.erase(userInts.begin(),userInts.begin()+1);
+   threshold = userInts.back();
+   userInts.pop_back();
+
+   for (int num : userInts)
+      if (num <= threshold) 
+      {
+         cout << num << ",";
+      }
+   
+   cout << endl;
+
+   return 0;
+}
