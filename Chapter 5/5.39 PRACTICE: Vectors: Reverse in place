@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>      
+
+using namespace std;
+
+int main() 
+{
+   vector<int> listNums;
+   int currNum;
+   
+   while (cin >> currNum) 
+   {
+      listNums.insert(listNums.begin(),currNum);
+   }
+         
+   for (int num : listNums) 
+   {
+      cout << num << " ";
+   }
+
+   cout << endl;
+
+   return 0;
+}
