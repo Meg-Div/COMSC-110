@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+
+   vector<int> listNegInts;
+   int number;
+   
+   while (cin >> number) 
+   {
+      if (number < 0) 
+      {
+         listNegInts.push_back(number);
+      }
+   }
+   
+   cout << listNegInts.size() << endl;
+   
+   for (int num : listNegInts) 
+   {
+      cout << num << endl;
+   }
+   
+
+   return 0;
+}
