@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userText, cleanedText; 
+   size_t startIndex, endIndex;
+   
+   getline(cin, userText); 
+   
+   startIndex = userText.find_first_not_of(' ');
+   endIndex = userText.find_last_not_of(' ');
+   
+   if (startIndex != string::npos) {
+      for (size_t i = startIndex; i <= endIndex; ++i) {
+         cleanedText.push_back(userText.at(i));
+      }
+      cout << cleanedText << endl;
+   }
+   
+   return 0;
+}
