@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip>   
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+double DrivingCost(double drivenMiles, double milesPerGallon, double dollarsPerGallon) 
+{
+   double dollars = (drivenMiles / milesPerGallon) * dollarsPerGallon;
+   
+   cout << fixed << setprecision(2) << dollars;
+   
+   return dollars;
+}
+
+int main() 
+{
+   double dollars, miles; 
+   string buf;
+   
+   cin >> buf;
+   miles = atof(buf.c_str());
+   
+   cin >> buf;   
+   dollars = atof(buf.c_str());
+   
+   DrivingCost(10, miles, dollars);
+   cout << " ";
+   
+   DrivingCost(50, miles, dollars);
+   cout << " ";
+   
+   DrivingCost(400, miles, dollars);
+   
+   cout << endl;
+   
+   return 0;
+}
