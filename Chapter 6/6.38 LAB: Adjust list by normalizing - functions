@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector> 
+#include <string>
+#include <cstdlib>
+
+using namespace std;
+
+int GetMinimumInt(vector<int> listInts) 
+{
+   int smallest = listInts.at(0);  
+   for (int num : listInts) 
+   {
+      if (num < smallest) 
+      {
+         smallest = num;
+      }
+   }
+
+   for (int num : listInts) 
+   {
+      num -= smallest;
+      cout << num << " ";
+   }
+
+   cout << endl;
+   
+   return smallest;
+}
+
+
+int main() 
+{
+   vector <int> listInts;
+   int numbers, number;
+   string buf;
+   
+   cin >> numbers;
+   
+   while (cin >> buf) 
+   {
+      number = stoi(buf.c_str());
+      listInts.push_back(number);
+   }
+   
+   GetMinimumInt(listInts);
+   
+   return 0;
+}
