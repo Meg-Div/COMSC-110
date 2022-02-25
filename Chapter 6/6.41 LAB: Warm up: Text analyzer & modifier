@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int GetNumOfCharacters(const string usrStr) 
+{
+   int count = 0;
+   for (size_t i = 0; i < usrStr.size(); ++i) 
+   {
+      count++;
+   }
+   
+   return count;
+}
+
+int main() 
+{
+   string phrase, phraseNoWhitespace;
+   int characters;
+
+   cout << "Enter a sentence or phrase:" << endl;
+   cout << endl;
+   
+   getline(cin, phrase);
+   
+   cout << "You entered: " << phrase;
+   cout << endl;
+   cout << endl;
+   
+   characters = GetNumOfCharacters(phrase);
+   
+   for (char letter : phrase) 
+   {
+      if (letter != ' ') 
+      {
+         phraseNoWhitespace.push_back(letter);
+      }
+  }
+   
+   cout << "Number of characters: " << characters << endl;
+   cout << "String with no whitespace: " << phraseNoWhitespace << endl;
+
+   return 0;
+}
