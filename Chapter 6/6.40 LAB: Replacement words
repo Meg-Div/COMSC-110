@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <cstdlib>
+
+using namespace std;
+
+int FindWordInWordList(vector<string> wordList, string wordToFind) 
+{
+  return find(wordList.begin(), wordList.end(), wordToFind) != wordList.end();
+ }
+
+
+int main() 
+{
+   vector <string> wordList, replacement;
+   size_t number;
+   string buf, word, replaceWord, wordToFind, finalSentence, sentence;
+   int count = 0;
+   
+   cin >> buf;
+   number = atoi(buf.c_str());
+   
+   for (size_t i = 0; i < number; ++i) 
+   {
+      cin >> word;
+      wordList.push_back(word);
+      
+      cin >> word;
+      replacement.push_back(word);
+   }
+   
+   cin >> number;
+   
+   getline(cin, sentence);
+   
+   sentence.erase (0,1);
+   string space = " ";
+   
+   if (sentence.at(sentence.length() - 1) != ' ') 
+   {
+      sentence.append(space); 
+   }
+         
+   for (size_t i = 0; i < wordList.size(); ++i) 
+   {
+      int index = FindWordInWordList(wordList, wordList.at(count));
+      word = wordList.at(count);
+      replaceWord = replacement.at(count);
+      
+      while (sentence.find(word) != std::string::npos) 
+      { 
+         sentence.replace(sentence.find(word), word.size(), replaceWord);
+      }
+      
+      count++;
+   }
+   
+   cout << sentence << endl;
+   
+   return 0;
+}
