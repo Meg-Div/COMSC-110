@@ -1,0 +1,72 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+double CalcToll(int hour, bool isMorning, bool isWeekend) 
+{
+   double toll = 0;
+	   if (isMorning && isWeekend) 
+	   {
+	      if (hour < 7) 
+	      {
+	         toll = 1.05;
+	      } 
+	      else 
+	      {
+	         toll = 2.15;
+	      }
+	   }
+	   else if (!isMorning && isWeekend) 
+	   {
+	      if (hour < 8) 
+	      {
+	         toll = 2.15;
+	      } 
+	      else 
+	      {
+	         toll = 1.10;
+	      }
+	   }
+	   else if (isMorning && !isWeekend) 
+	   {
+	      if (hour < 7) 
+	      {
+	         toll = 1.15;
+	      } 
+	      else if (hour < 10) 
+	      {
+	         toll = 2.95;
+	      } 
+	      else 
+	      {
+	         toll = 1.90;
+	      }
+	   }
+	   else if (!isMorning && !isWeekend) 
+	   {
+	      if (hour < 3) 
+	      {
+	         toll = 1.90;
+	      } 
+	      else if (hour < 8) 
+	      {
+	         toll = 3.95;
+	      } 
+	      else 
+	      {
+	         toll = 1.40;
+	      }
+	   }
+	   return toll;
+}
+
+int main() 
+{
+	cout << CalcToll(8, true, false) << endl;   
+	cout << CalcToll(1, false, false) << endl; 
+	cout << CalcToll(3, false, true) << endl;  
+	cout << CalcToll(5, true, true) << endl;   
+
+	return 0;
+}
