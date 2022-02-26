@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+double ActivityCalories(string activity, int duration) 
+{
+   double calories = 0;
+   
+   if (activity == "sit") 
+   {
+      calories += (1.4 * duration);
+   }
+   else if (activity == "walk") 
+   {
+      calories += (5.4 * duration);
+   }
+   else if (activity == "run") 
+   {
+      calories += (13.0 * duration);
+   }
+   else if (activity == "bike") 
+   {
+      calories += (6.8 * duration);
+   }
+   else if (activity == "swim") 
+   {
+      calories += (8.7 * duration);
+   }
+ 
+   return calories;
+}
+
+int main() 
+{
+   int userMinutes;
+   string userActivity; 
+   
+   cin >> userActivity;
+   cin >> userMinutes;
+   
+   cout << ActivityCalories(userActivity, userMinutes) << endl;
+   
+   return 0;
+}
