@@ -1,0 +1,68 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void Ascend3(int &a, int &b, int &c) 
+{
+   int highVal, midVal, lowVal;
+   
+   if (a > b) 
+   {
+      highVal = a, midVal = b;
+   }
+   else 
+   {
+      highVal = b, midVal = a;
+   }
+   
+   if ( c <= b && c <= a ) 
+   {
+         lowVal = c;
+   }
+   
+   if (highVal == a && midVal == b) 
+   {
+     if (c >= a && c >= b) 
+     {
+        highVal = c, midVal = a, lowVal = b;
+     }
+      else if (c >= b ) 
+      {
+         midVal = c, lowVal = b;
+      }
+   }
+   
+   else if (highVal == b && midVal == a) 
+   {
+      if (c >= b && c >= a) 
+      {
+         highVal = c, midVal = b, lowVal = a;
+      }
+      else if (c >= a) 
+      {
+         midVal = c, lowVal = a;
+      }
+   }
+   
+   a = lowVal;
+   b = midVal;
+   c = highVal;
+   
+}
+
+int main() 
+{
+   
+   int x, y, z;
+   
+   cin >> x; 
+   cin >> y;
+   cin >> z;
+   
+   Ascend3(x, y, z);
+   
+   cout << x << " " << y << " " << z << endl;
+
+
+   return 0;
+}
