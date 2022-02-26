@@ -1,0 +1,50 @@
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cctype>
+
+
+using namespace std;
+
+int main () {
+   
+   string sline, first, second;
+   string comma = ",";
+
+   cout << "Enter input string:" << endl;
+
+   while (getline(cin,sline)) 
+   {
+      if (sline.find(" ") != std::string::npos) 
+      {
+         sline.replace(sline.find(" "), comma.size(), "");
+      }
+        
+         if (sline.find(",") != std::string::npos) 
+         {
+            sline.replace(sline.find(","), comma.size(), ", ");
+         }
+        
+         if (sline != "q") 
+         {
+            stringstream (sline) >> first >> second;
+        
+            if (sline.find(",") == std::string::npos) 
+            {
+               cout << "Error: No comma in string." << endl;
+               cout << endl;
+               cout << "Enter input string:" << endl;
+            }
+            else 
+            {
+               first.pop_back();
+               cout << "First word: " << first << endl;
+               cout << "Second word: " << second << endl;
+               cout << endl;
+               cout << "Enter input string:" << endl;
+            }
+         }
+   }
+    return 0;
+}
