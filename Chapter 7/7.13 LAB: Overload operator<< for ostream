@@ -1,0 +1,24 @@
+#include "Number.h"
+#include <iostream>
+
+using namespace std;
+
+std::ostream& operator<<(std::ostream& out, const Number& num)
+{
+   out << "The value is ";
+    
+   return out;
+}
+
+int main() 
+{
+   int input;
+    
+   cin >> input;
+    
+   Number num = Number(input);
+    
+   cout << num << input << endl;
+
+   return 0;
+}
