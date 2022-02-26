@@ -1,0 +1,152 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <istream>
+#include <iomanip>
+#include <cstdlib>
+
+using namespace std;
+
+string Table(vector <string> stringDataPoints, vector <int> intDataPoints, string dataTitle, string columnOneHeader, string columnTwoHeader ) {
+   ostringstream outSS;
+
+   const int HEADER_1_WIDTH = 20;
+   const int HEADER_2_WIDTH = 23;
+
+   outSS << endl << setw(33) << right << dataTitle << endl;
+  
+   outSS << setw(HEADER_1_WIDTH) << left << columnOneHeader << "|"
+      << setw(HEADER_2_WIDTH) << right << columnTwoHeader << endl;
+    
+   outSS << setfill('-') << setw(HEADER_1_WIDTH + HEADER_2_WIDTH + 1) << "" << endl;
+
+   for (size_t i = 0; i < stringDataPoints.size(); ++i) 
+   {
+      outSS << setfill(' ') << setw(HEADER_1_WIDTH) << left << stringDataPoints.at(i) << "|" << setw(HEADER_2_WIDTH) << right << intDataPoints.at(i) << endl;
+   }
+  
+   return outSS.str();
+}
+
+string Histogram(vector <string> stringDataPoints, vector <int> intDataPoints ) 
+{
+   ostringstream outSS;
+   const int HEADER_1_WIDTH = 20;
+
+   for (size_t i = 0; i < stringDataPoints.size(); ++i) 
+   {
+      if (i == stringDataPoints.size()-1) 
+      {
+         outSS << setfill(' ') << setw(HEADER_1_WIDTH) << right << stringDataPoints.at(i) << " " << setfill('*') << setw(intDataPoints.at(i)) << "";
+      } 
+      else 
+      {
+         outSS << setfill(' ') << setw(HEADER_1_WIDTH) << right << stringDataPoints.at(i) << " " << setfill('*') << setw(intDataPoints.at(i)) << "" << endl;
+      }
+   }
+   return outSS.str();
+}
+
+int main() 
+{  
+   string dataTitle, columnOneHeader, columnTwoHeader, dataPoints, str, str2, table, hist;
+   string comma = ",";
+   int integer = 0;
+   bool error;
+    
+   ostringstream outSS;               
+   istringstream inSS(dataPoints);  
+    
+   vector <string> stringDataPoints;
+   vector <int> intDataPoints;     
+    
+   cout << "Enter a title for the data:"<< endl;
+   getline(cin, dataTitle);
+   cout << "You entered: " << dataTitle << endl;
+   cout << endl;
+   
+   cout << "Enter the column 1 header:"<< endl;
+   getline(cin, columnOneHeader);
+   cout << "You entered: " << columnOneHeader << endl;
+   cout << endl;
+   
+   cout << "Enter the column 2 header:"<< endl;
+   getline(cin, columnTwoHeader);
+   cout << "You entered: " << columnTwoHeader << endl;
+   cout << endl;
+    
+   cout << "Enter a data point (-1 to stop input):" << endl;
+    
+   while (getline(cin, dataPoints) && dataPoints != "-1") 
+   {
+      error = false;  
+      if (dataPoints.find_last_of(",") != dataPoints.find_first_of(",")) 
+      {
+         cout << "Error: Too many commas in input." << endl;
+         cout << endl;
+         error = true;
+         cout << "Enter a data point (-1 to stop input):" << endl;
+      }
+      
+      else if (dataPoints.find(",") == std::string::npos) 
+      { 
+         cout << "Error: No comma in string." << endl;
+         cout << endl;
+         error = true;
+         cout << "Enter a data point (-1 to stop input):" << endl;
+      }
+        
+      else if (dataPoints.find_last_of(" ") != dataPoints.find_first_of(" ")) 
+      { 
+         size_t commaIndex = dataPoints.find(",");
+
+         inSS.clear();
+         inSS.str(dataPoints);
+         
+         str = dataPoints.substr(0, commaIndex+1);
+         str2 = dataPoints.substr(commaIndex+1, dataPoints.size());
+         
+         stringstream number(str2);
+         number >> integer;
+      }
+        
+      else if (dataPoints.find_last_of(" ") == dataPoints.find_first_of(" ")) 
+      {
+         inSS.clear(); 
+         inSS.str(dataPoints);
+         inSS >> str; 
+         inSS >> integer;
+      }
+            
+      if (integer == 0 && error == false) 
+      {
+         cout << "Error: Comma not followed by an integer." << endl;
+         cout << endl;
+         error = true;
+         cout << "Enter a data point (-1 to stop input):" << endl;
+      }
+        
+      else if (!error) 
+      {
+         if (str.find(",") != std::string::npos) 
+         {
+            str.replace(str.find(comma), comma.size(), "");
+         }
+            cout << "Data string: " << str << endl;
+            stringDataPoints.push_back(str);
+            cout << "Data integer: " << integer << endl;
+            intDataPoints.push_back(integer);
+            cout << endl;
+            cout << "Enter a data point (-1 to stop input):" << endl;
+      }
+   }
+   
+   table = Table(stringDataPoints, intDataPoints, dataTitle, columnOneHeader, columnTwoHeader);
+   cout << table << endl;
+   
+   hist = Histogram(stringDataPoints, intDataPoints);
+   cout << hist << endl;
+    
+   return 0;
+}
