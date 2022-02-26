@@ -1,0 +1,121 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <fstream>
+#include <istream>
+#include <iomanip>
+#include <stdlib.h>
+
+using namespace std;
+
+string streamFunc(vector <string> organized) 
+{
+   string showTimes, movieName, rating, currString;
+   ostringstream outSS;
+   const int COLUMN_ONE = 44;
+   const int COLUMN_TWO = 5;
+    
+   for (size_t i = 0; i < organized.size(); ++i) 
+   {
+      string currString = organized.at(i);
+      size_t firstCommaIndex = currString.find_first_of(",");
+      size_t lastCommaIndex = currString.find_last_of(",");
+      size_t numberOfChar = lastCommaIndex - firstCommaIndex - 1;
+        
+      movieName = currString.substr(0, firstCommaIndex);
+      rating = currString.substr(firstCommaIndex+1, numberOfChar);
+      showTimes = currString.substr(lastCommaIndex+1);
+        
+      if (movieName.size() > 44) 
+      {
+         movieName = movieName.substr(0, 44);
+      }
+        
+        
+      outSS << setw(COLUMN_ONE) << left << setfill(' ') << movieName << " | " << setw(COLUMN_TWO) << right << setfill(' ') << rating << " | " << left << showTimes << endl;
+   }
+   
+   return outSS.str();
+}
+
+int main () 
+{
+    string movieInfo, showTimes, movieName, rating, fileName, hardString, hardName, table, file;
+    vector <string> mergedInfo, separate, organized;
+    
+    fstream nameFile;
+    ostringstream outSS; 
+    istringstream inSS(movieInfo);
+    
+    getline(cin, file);
+    nameFile.open(file, ios::in);
+    
+   if (nameFile) 
+   {
+      while (getline(nameFile, movieInfo)) 
+      {
+         inSS.clear();
+         inSS.str(movieInfo);
+         mergedInfo.push_back(movieInfo);
+      }
+      nameFile.close();
+   }
+
+   for (size_t i = 0; i < mergedInfo.size(); ++i) 
+   {
+      string currString = mergedInfo.at(i);
+        
+      size_t firstCommaIndex = currString.find_first_of(",");
+      size_t lastCommaIndex = currString.find_last_of(",");
+      size_t numberOfChar = lastCommaIndex - firstCommaIndex - 1;
+        
+      showTimes = currString.substr(0, firstCommaIndex);
+      movieName = currString.substr(firstCommaIndex+1, numberOfChar);
+      rating = currString.substr(lastCommaIndex+1);
+
+      string line = movieName + "," + rating + "," + showTimes;
+      separate.push_back(line);
+   }
+
+   for (size_t i = 0; i < separate.size(); ++i) 
+   {
+      string currString = separate.at(i);
+        
+      size_t firstCommaIndex = currString.find_first_of(",");
+      size_t lastCommaIndex = currString.find_last_of(",");
+      size_t numberOfChar = lastCommaIndex - firstCommaIndex - 1;
+        
+      movieName = currString.substr(0, firstCommaIndex);
+      rating = currString.substr(firstCommaIndex+1, numberOfChar);
+      showTimes = currString.substr(lastCommaIndex+1);
+      
+      if (i == 0) 
+      {
+         hardName = movieName;
+         hardString = hardName + "," + rating + "," + showTimes;
+      }
+      
+      else if (movieName == hardName) 
+      {
+         hardString = hardString + " " + showTimes;
+      }
+      
+      else if (movieName != hardName) 
+      {
+         organized.push_back(hardString);
+         hardName = movieName;
+         hardString = hardName + "," + rating + "," + showTimes;
+      }
+      
+      if (i == separate.size()-1) 
+      {
+         organized.push_back(hardString);
+      }
+   }
+
+   table = streamFunc(organized);
+   cout << table;
+
+   return 0;
+}
