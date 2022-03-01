@@ -7,5 +7,3 @@
 <p> 5.  Arrays / Vectors </p>
 <p> 6.  User-Defined Functions </p>
 <p> 7.  Files (aka: Streams) </p>
-<p> 8.  Recursion </p>
-<p> 9.  Structures, Objects and Classes </p>
